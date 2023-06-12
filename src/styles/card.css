@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
+
+.Card {
+    background: url("../assets/images/bg-main-mobile.png");
+    background-size: 375px 250px;
+    background-repeat: no-repeat;
+}
+
+.card-back {
+    background: url(../assets/images/bg-card-back.png);
+    position: relative;
+    left: 26px;
+    top: 30px;
+    margin: auto;
+    z-index: 1;
+}
+
+.card-front {
+    background: url("../assets/images/bg-card-front.png");
+    position: relative;
+    right: 25px;
+    bottom: 28px;
+    margin: auto;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cvc {
+    color: white;
+    position: relative;
+    left: 236px;
+    top: 82px;
+    margin: auto;
+    font-size: 10px;
+    letter-spacing: 1px;
+    font-weight: 200;
+}
+
+.circle-ctn {
+    display: flex;
+    align-items: center;
+    padding: 1.2em;
+}
+
+.circle-fill {
+    font-size: 30px;
+    color: #fff;
+    margin-right: 0.4em;
+}
+
+.circle-hollow {
+    color: #fff;
+    font-size: 14px;
+}
+
+.card-info {
+    padding: 1.3em;
+    white-space: nowrap;
+}
+
+.number {
+    color: hsl(270, 4%, 90%);
+    font-weight: 100;
+    font-size: 19px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 1px black;
+    padding-bottom: 0.75em;
+    font-weight: 500;
+}
+
+.name-exp-ctn {
+    display: flex;
+    justify-content: space-between;
+    color: hsl(270, 4%, 90%);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    text-shadow: 0 0 1px black;
+}
+
+.exp {
+    letter-spacing: 1px;
+    font-weight: 200;
+}
+
+.card-back, .card-front {
+    background-repeat: no-repeat;
+    border-radius: 8px;
+    background-size: 290px 180px;
+    width: 290px;
+    height: 160px;
+}
+
+
+/* ### Primary
+
+- Linear gradient (active input border): hsl(249, 99%, 64%) to hsl(278, 94%, 30%)
+- Red (input errors): hsl(0, 100%, 66%)
+
+### Neutral
+
+- White: hsl(0, 0%, 100%)
+- Light grayish violet: hsl(270, 3%, 87%)
+- Dark grayish violet: hsl(279, 6%, 55%)
+- Very dark violet: hsl(278, 68%, 11%)
+
+## Typography */

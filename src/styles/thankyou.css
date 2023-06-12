@@ -1,0 +1,42 @@
+.ThankYou {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.3em;
+}
+
+img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 2em
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 3px;
+    margin-bottom: 0.6em;
+}
+
+h3 {
+    color: hsl(300, 1%, 63%);
+    font-weight: 500;
+    margin-bottom: 1.5em;
+}
+
+button {
+    height: 53px;
+    border-radius: 8px;
+    border: none;
+    background:hsl(279, 61%, 16%);
+    color: #fff;
+    margin-top: 1.5em;
+    width: 100%;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: hsl(278, 66%, 23%)
+}
