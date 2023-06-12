@@ -1,26 +1,9 @@
-import React, {useEffect, useState} from 'react'
 import '../styles/forminput.css'
 import MaskedInput from 'react-text-mask'
-import { useForm } from "react-hook-form";
-import ThankYou from './ThankYou';
+
 
 function FormInput({name, setName, setNumber, setMonth, setYear, setCvc, test, month, year, cvc, setclicked}) {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm({
-        defaultValues : {
-            CardHolderName: '',
-        }
-    });
-    const watchCardHolderName = watch("CardHolderName", true);
-    const onSubmit = data => {
-        console.log(data.CardHolderName)
-        console.log(watchCardHolderName)
-    };
-
-    useEffect(() => {
-        const displayName = watch((value) => setName(value.CardHolderName));
-        return () => displayName.unsubscribe();
-    }, [watch])
-
+    
     function handleName(e){
         setName(e.target.value)
     }
@@ -46,20 +29,16 @@ function FormInput({name, setName, setNumber, setMonth, setYear, setCvc, test, m
 
     return (
         <div className='form-ctn'>
-            <form className='form' onSubmit={handleSubmit(onSubmit)}>
+            <form className='form' onSubmit={handleFormSubmit}>
                 <label>CARDHOLDER NAME</label>
-                {watchCardHolderName && 
-                    <input 
-                        onChange={() => setName(event.target.value)} 
-                        {...register("CardHolderName", { pattern: /^[A-Za-z]+$/i }, { required: "Please enter your name." })} />}
-                {/* <input 
+                <input 
                     className='nameNumberInput'
                     placeholder="e.g. Jane Appleseed" 
                     type="name" 
                     onChange={() => handleName(event)} 
                     onKeyPress={event => (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)}
                     required
-                /> */}
+                />
                 <label>CARD NUMBER</label>
                 <MaskedInput 
                     mask={[ /[\d]/, /\d/, /\d/, /\d/,' ', /\d/, /\d/, /\d/, /\d/,' ',  /\d/, /\d/, /\d/, /\d/,' ',  /\d/, /\d/, /\d/, /\d/]}
