@@ -1,9 +1,28 @@
-import '../styles/forminput.css'
+// import '../styles/forminput.css'
 import MaskedInput from 'react-text-mask'
+import * as yup from "yup"; 
+import { useForm } from 'react-hook-form';
+import { nameSchema } from '../validations/NameValidations';
+
 
 
 function FormInput({name, setName, setNumber, setMonth, setYear, setCvc, test, month, year, cvc, setclicked}) {
+    const {register, handleSubmit, watch, formState: { errors }} = useForm();
+    const onSubmit = async (data, e) => {
+        e.preventDefault();
+        let nameData = {name: e.target[0].value};
+        const isValid = await nameSchema.isValid(nameData)
+        {isValid == true ? setclicked(true) : null} 
+        console.log(data)
+    };
     
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+        let formData = {name: e.target[0].value};
+        const isValid = await nameSchema.isValid(formData)
+        {isValid == true ? setclicked(true) : null} 
+        console.log(isValid)
+    }
     function handleName(e){
         setName(e.target.value)
     }
@@ -12,7 +31,7 @@ function FormInput({name, setName, setNumber, setMonth, setYear, setCvc, test, m
         setNumber(val.replace(/\W/gi, '').replace(/(.{4})/g, '$1 '));
     }
     function handleMonth(e){
-        setMonth(e.target.value)
+       
     }
     function handleYear(e){
         setYear(e.target.value)
@@ -21,22 +40,16 @@ function FormInput({name, setName, setNumber, setMonth, setYear, setCvc, test, m
         setCvc(e.target.value)
     }
 
-    function handleFormSubmit(e){
-        e.preventDefault()
-        setclicked(true);
-        console.log("clicked")
-    }
-
     return (
         <div className='form-ctn'>
-            <form className='form' onSubmit={handleFormSubmit}>
+            {/* <form className='form' onSubmit={() => handleSubmit(event)}> */}
+            <form className='form' onSubmit={handleSubmit(onSubmit)}>
                 <label>CARDHOLDER NAME</label>
                 <input 
                     className='nameNumberInput'
                     placeholder="e.g. Jane Appleseed" 
                     type="name" 
-                    onChange={() => handleName(event)} 
-                    onKeyPress={event => (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122)}
+                    onChange={() => handleName(event)}
                     required
                 />
                 <label>CARD NUMBER</label>
@@ -52,8 +65,19 @@ function FormInput({name, setName, setNumber, setMonth, setYear, setCvc, test, m
                 <div className='date-cvc-ctn'>
                     <div className='date-cvc'>
                         <label>EXP. DATE</label>
-                        <MaskedInput
+                        <input 
+                            className="dateInput" 
+                            type="tel" 
+                            maxLength={2}
+                            max={12}
+                            required={true}
+                            onChange={() => handleMonth(event)}
+                            {...register("Month", {required: true}, { onChange: (e) => console.log(e.target.value) })} 
+                        />
+                            {errors.Month && <p>Can&apos;t be Blank</p>}
+                         {/* <MaskedInput
                             mask={[/[0-1]/, /[0-9]/,]}
+                            // mask={[/[1-12]/]}
                             guide={false} 
                             className='dateInput'
                             placeholder='MM' 
@@ -61,7 +85,7 @@ function FormInput({name, setName, setNumber, setMonth, setYear, setCvc, test, m
                             onChange={() => handleMonth(event)}
                             required
                         />
-                        {month === "00" || year === "00" ? <p className='warning'>Can&apos;t be blank</p> : ""}
+                        {month === "00" || year === "00" ? <p className='warning'>Can&apos;t be blank</p> : ""}  */}
                     </div>
                     <div className='date-cvc'>
                         <label>(MM/YY)</label>

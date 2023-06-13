@@ -1,20 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
 
-.form {
+
+.form-ctn {
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    padding: 0 1.3em 1.3em 1.3em;
 }
 
-.date-cvc-ctn {
-display: flex;
+.name-ctn, .number-ctn {
+    display: flex;
+    flex-direction: column;
+    height: 90px;
+}
+
+.error {
+    white-space: nowrap;
+    font-size: 12px;
+    color: hsl(0, 100%, 66%);
+    font-weight: bold;
+    padding-top: 0.5em;
 }
 
 input {
+    margin-bottom: 0;
     border: 1px solid hsl(270, 3%, 87%);
     height: 47px;
     border-radius: 5px;
-    margin-bottom: 1.5em;
     padding-left: 1em;
     color: hsl(278, 67%, 7%);
     font-weight: 800;
@@ -30,57 +41,56 @@ input::placeholder {
     color: hsl(270, 2%, 82%);
 }
 
+.label:nth-of-type(1){
+
+}
+
 label {
     color: hsl(278, 67%, 7%);
     font-weight: 500;
     letter-spacing: 1.5px;
-    padding-bottom: 0.7em;
+    padding-bottom: 0.5em;
+    padding-left: 0.3em;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
 }
 
-.date-cvc input {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-}
-
-.nameNumberInput {
-}
-
-.dateInput{
-    width: 70px;
-}
-
-input.cvcInput {
-    max-width: 165px;
-}
-.cvcInput {
+.date-cvc-ctn {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100px;
     
 }
 
-button {
+.date, .CVC{
+    display: flex;
+    flex-direction: column;
+}
+
+.date {
+    width: 70px;
+    white-space: nowrap;
+}
+
+.date input {
+    width: 100%;
+}
+
+.CVC {
+    width: 155px;
+}
+.CVC input {
+    width: 100%;
+}
+
+.submit {
     height: 53px;
     border-radius: 8px;
     border: none;
     background:hsl(279, 61%, 16%);
     color: #fff;
-    margin-top: 1.5em;
 }
 
-button:hover {
+.submit:hover {
     background: hsl(278, 66%, 23%)
-}
-
-.warning {
-    white-space: nowrap;
-    font-size: 12px;
-    color: hsl(0, 100%, 66%);
-    font-weight: bold;
-}
-
-.active {
-    display: flex;
-}
-.inactive {
-    display: none;
 }

@@ -1,0 +1,86 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap');
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+
+.date-cvc-ctn {
+display: flex;
+}
+
+input {
+    border: 1px solid hsl(270, 3%, 87%);
+    height: 47px;
+    border-radius: 5px;
+    margin-bottom: 1.5em;
+    padding-left: 1em;
+    color: hsl(278, 67%, 7%);
+    font-weight: 800;
+}
+
+input:focus {
+    outline: none !important;
+    border: 2px solid hsl(278, 57%, 70%);
+  }
+
+input::placeholder {
+    font-size: 19px;
+    color: hsl(270, 2%, 82%);
+}
+
+label {
+    color: hsl(278, 67%, 7%);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    padding-bottom: 0.7em;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.date-cvc input {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.nameNumberInput {
+}
+
+.dateInput{
+    width: 70px;
+}
+
+input.cvcInput {
+    max-width: 165px;
+}
+.cvcInput {
+    
+}
+
+button {
+    height: 53px;
+    border-radius: 8px;
+    border: none;
+    background:hsl(279, 61%, 16%);
+    color: #fff;
+    margin-top: 1.5em;
+}
+
+button:hover {
+    background: hsl(278, 66%, 23%)
+}
+
+.warning {
+    white-space: nowrap;
+    font-size: 12px;
+    color: hsl(0, 100%, 66%);
+    font-weight: bold;
+}
+
+.active {
+    display: flex;
+}
+.inactive {
+    display: none;
+} */
