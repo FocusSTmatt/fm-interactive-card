@@ -31,7 +31,7 @@ function App() {
         cvc={cvc}
         
       />
-      <FormInput1
+      {!isClicked ? <FormInput1
         test={test}
         setName={setName}
         setNumber={setNumber}
@@ -43,7 +43,10 @@ function App() {
         number={number}
         year={year}
         cvc={cvc}
-        setclicked={setIsClicked} />
+        setclicked={setIsClicked} 
+        /> : <ThankYou />}
+
+
       {/* {!isClicked ? 
         <FormInput
           test={test}
