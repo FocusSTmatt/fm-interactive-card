@@ -29,7 +29,7 @@ button {
     height: 53px;
     border-radius: 8px;
     border: none;
-    background:hsl(279, 61%, 16%);
+    background:hsl(279, 61%, 13%);
     color: #fff;
     margin-top: 1.5em;
     width: 100%;
@@ -39,4 +39,15 @@ button {
 
 button:hover {
     background: hsl(278, 66%, 23%)
+}
+
+@media screen and (min-width: 1300px){
+    .ThankYou {
+        justify-content: center;
+        align-items: left;
+        position: absolute;
+        width: 410px;
+        right: 200px;
+        top: 210px;
+    }
 }
