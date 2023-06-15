@@ -8,7 +8,7 @@ function ThankYou() {
         <img src={iconComplete} />
         <h1>THANK YOU!</h1>
         <h3>We&apos;ve added your card details</h3>
-        <button>Continue</button>
+        <button onClick={() => location.reload()}>Continue</button>
     </div>
   )
 }

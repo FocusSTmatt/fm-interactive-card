@@ -1,36 +1,26 @@
 import { useForm } from 'react-hook-form';
 import '../styles/forminput1.css'
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
+
+
 
 
 function FormInput1({ number, setName, setNumber, setMonth, setYear, setCvc, month, setclicked }) {
-    const placeHolderNameRef = useRef(null)
-    const placeHolderNumberRef = useRef(null)
-    const placeHolderMonthRef = useRef(null)
-    const placeHolderYearRef = useRef(null)
-    const placeHolderCvcRef = useRef(null)
+    const placeHolderNameRef = useRef(null);
+    const placeHolderNumberRef = useRef(null);
+    const placeHolderMonthRef = useRef(null);
+    const placeHolderYearRef = useRef(null);
+    const placeHolderCvcRef = useRef(null);
     
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [placeholder, setPlaceholder] = useState([null, null, null])
-
-    function testClick(){
-
-    }
-
-    const onSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form Submitted")
+    
+    const onSubmit = () => {
         setclicked(true);
     };
-    
+
     function handleName(e){
         setName(e.target.value);
         placeHolderNameRef.current.style.display = "none";
-    //     if(errors.CardHolderName){
-    //         e.target.style.outlineColor = "red"
-    //     } else {
-    //         e.target.style.outlineColor = "Purple"
-    //     }
     }
 
     function handleNumber(e) {
@@ -38,7 +28,6 @@ function FormInput1({ number, setName, setNumber, setMonth, setYear, setCvc, mon
         let val = e.target.value;
         setNumber(val.replace(/\W/gi, '').replace(/(.{4})/g, '$1 '));
         placeHolderNumberRef.current.style.display = "none";
-        console.log(e.target);
     }
 
     function handleMonth(e) {
@@ -79,15 +68,21 @@ function FormInput1({ number, setName, setNumber, setMonth, setYear, setCvc, mon
         <form className='form-ctn' onSubmit={handleSubmit(onSubmit)}>
             <div className='name-ctn'>
                 <label htmlFor='name'>CARDHOLDER NAME</label>
-                <label ref={placeHolderNameRef} className='placeHolderName'>e.g. Jane Appleseed</label>
+                <label 
+                    ref={placeHolderNameRef} 
+                    className='placeHolderName'
+                    >e.g. Jane Appleseed
+                </label>
                 <input
                     id="name"
+                    name="name"
                     type="text"
                     {...register("CardHolderName", {
                         onChange: (e) => handleName(e), 
-                        pattern: /^[a-zA-Z]+/, 
+                        pattern: /^[a-zA-Z]+/,
                         required: true 
                     })}
+                    style={errors.CardHolderName ? {borderColor: "red"} : {borderColor: "hsl(270, 3%, 87%)"}}
                 />
                 {errors.CardHolderName && <p className='error'>Enter Valid Name</p>}
             </div>
@@ -111,6 +106,7 @@ function FormInput1({ number, setName, setNumber, setMonth, setYear, setCvc, mon
                         onChange: (e) => { handleNumber(e) }, 
                         required: true 
                     })}
+                    style={errors.CardHolderNumber ? {borderColor: "red"} : {borderColor: "hsl(270, 3%, 87%)"}}
                 />
                 {errors.CardHolderNumber && <p className='error'>Enter Valid CC Number</p>}
             </div>
@@ -133,6 +129,7 @@ function FormInput1({ number, setName, setNumber, setMonth, setYear, setCvc, mon
                             onChange: (e) => handleMonth(e), 
                             required: true, 
                         })}
+                        style={errors.Month ? {borderColor: "red"} : {borderColor: "hsl(270, 3%, 87%)"}}
                     />
                     {errors.Month && <p className='error'>Invalid Month</p>}
                 </div>
@@ -155,6 +152,7 @@ function FormInput1({ number, setName, setNumber, setMonth, setYear, setCvc, mon
                                 max: 36, 
                                 required: true, 
                             })}
+                            style={errors.Year ? {borderColor: "red"} : {borderColor: "hsl(270, 3%, 87%)"}}
                         />
                     {errors.Year && <p className='error'>Invalid Year</p>}
                 </div>
@@ -175,6 +173,7 @@ function FormInput1({ number, setName, setNumber, setMonth, setYear, setCvc, mon
                             onChange: (e) => handleCvc(e), 
                             required: true 
                         })}
+                        style={errors.Cvc ? {borderColor: "red"} : {borderColor: "hsl(270, 3%, 87%)"}}
                     />
                     {errors.Cvc && <p className='error'>Invalid CVC</p>}
                 </div>
